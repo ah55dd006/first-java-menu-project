@@ -1,0 +1,89 @@
+import java.util.Scanner;
+public class first-java-menu-project{
+    static Scanner input = new Scanner(System.in);
+    public static void main(String[] args) {
+        int choice;
+        do {
+            System.out.println("\n=== MENU ===");
+            System.out.println("1. Calculator");
+            System.out.println("2. Multiplication Table");
+            System.out.println("3. Check Number");
+            System.out.println("4. Exit");
+            System.out.print("Choose: ");
+
+            choice = input.nextInt();
+
+            switch (choice) {
+                case 1:
+                    calculator();
+                    break;
+                case 2:
+                    table();
+                    break;
+                case 3:
+                    checkNumber();
+                    break;
+                case 4:
+                    System.out.println("Goodbye 👋");
+                    break;
+                default:
+                    System.out.println("Invalid choice");
+            }
+
+        } while (choice != 4);
+    }
+
+    // Calculator Function
+    public static void calculator() {
+        System.out.print("Enter first number: ");
+        double a = input.nextDouble();
+
+        System.out.print("Enter second number: ");
+        double b = input.nextDouble();
+
+        System.out.print("Choose operation (+ - * /): ");
+        char op = input.next().charAt(0);
+
+        switch (op) {
+            case '+':
+                System.out.println("Result = " + (a + b));
+                break;
+            case '-':
+                System.out.println("Result = " + (a - b));
+                break;
+            case '*':
+                System.out.println("Result = " + (a * b));
+                break;
+            case '/':
+                if (b != 0)
+                    System.out.println("Result = " + (a / b));
+                else
+                    System.out.println("Cannot divide by zero");
+                break;
+            default:
+                System.out.println("Wrong operation");
+        }
+    }
+
+    // Multiplication Table Function
+    public static void table() {
+        System.out.print("Enter number: ");
+        int num = input.nextInt();
+
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(num + " x " + i + " = " + (num * i));
+        }
+    }
+
+    // Check Number Function
+    public static void checkNumber() {
+        System.out.print("Enter number: ");
+        int num = input.nextInt();
+
+        if (num % 2 == 0)
+            System.out.println("Even number");
+        else
+            System.out.println("Odd number");
+   
+    }
+}
